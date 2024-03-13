@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:flutter/material.dart';
+
 
 class QrPage extends StatefulWidget {
   const QrPage({super.key});
@@ -19,8 +21,11 @@ class _QrPageState extends State<QrPage> {
           children: [
             CircleAvatar(),
             Container(
-              decoration: BoxDecoration(color: Colors.teal),
-              child: Text('qr code'),
+              child: QrImageView(
+                data: '1234567890',
+                version: QrVersions.auto,
+                size: 200.0,
+              ),
             ),
             Container(
               decoration: BoxDecoration(color: Colors.amber),

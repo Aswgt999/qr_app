@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:qr_app1/qr_page.dart';
 import 'package:qr_app1/registration_page.dart';
 
@@ -19,71 +21,78 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.teal,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // LOGIN HEADING
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.red,
-              ),
-              child: Text('Login', style: TextStyle(fontSize: 32, color: Colors.white,),),
+      body: Column(
+        children: [
+          SizedBox(
+            height: 200,
+          ),
+          // LOGIN HEADING
+          Text(
+            'Login',
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
-            // FIELD TO ENTER ROLL NO
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.yellow,
-              ),
-              child: TextField(
-                controller: rollNo,
-                decoration: InputDecoration(labelText: 'Roll no'),
+          ),
+          SizedBox(
+            height: 150,
+          ),
+          // FIELD TO ENTER ROLL NO
+          Container(
+            margin: EdgeInsets.fromLTRB(40, 0, 40, 10),
+            child: TextField(
+              controller: rollNo,
+              decoration: InputDecoration(
+                  labelText: 'Roll no',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)),),
+                  filled: true),
+            ),
+          ),
+          // FIELD TO ENTER PASSWORD
+          Padding(
+            padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+            child: TextField(
+              controller: passWord,
+              decoration: InputDecoration(
+                  labelText: 'password',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)),),
+                  filled: true),
+            ),
+          ),
+          // LOGIN BUTTON
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const QrPage()));
+              },
+              child: Text(
+                'Login',
+                style: TextStyle(color: Colors.black),
               ),
             ),
-            // FIELD TO ENTER PASSWORD
-            Container(
+          ),
+          // FOR REGISTERING A NEW ACCOUNT
+          Container(
               decoration: BoxDecoration(
-                color: Colors.green,
+                color: Colors.orange,
               ),
-              child: TextField(
-                controller: passWord,
-                decoration: InputDecoration(labelText: 'Password'),
-              ),
-            ),
-            // LOGIN BUTTON
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const QrPage()));
-                },
-                child: Text(
-                  'Login',
+              child: RichText(
+                text: TextSpan(
                   style: TextStyle(color: Colors.black),
+                  text: 'dont have an account? Register',
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RegistrationPage())),
                 ),
-              ),
-            ),
-            // FOR REGISTERING A NEW ACCOUNT
-            Container(
-                decoration: BoxDecoration(
-                  color: Colors.orange,
-                ),
-                child: RichText(
-                  text: TextSpan(
-                    style: TextStyle(color: Colors.black),
-                    text: 'dont have an account? Register',
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const RegistrationPage())),
-                  ),
-                )),
-          ],
-        ),
+              )),
+        ],
       ),
     );
   }
