@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:qr_app1/login_page.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
@@ -18,6 +19,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.purple[200],
         title: Text('Registration'),
         centerTitle: true,
       ),
@@ -25,32 +28,31 @@ class _RegistrationPageState extends State<RegistrationPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // ENTER YOUR NAME HERE
+            // FIELD TO ENTER NAME
             Container(
-              decoration: BoxDecoration(
-                color: Colors.yellow
-              ),
+              decoration: BoxDecoration(color: Colors.yellow),
               child: TextField(
                 controller: name,
                 decoration: InputDecoration(labelText: 'Enter your name here'),
               ),
             ),
-            // ENTER ROLL NUMBER HERE
+            // FIELD TO ENTER ROLL NO
             Container(
               decoration: BoxDecoration(color: Colors.blue),
               child: TextField(
                 controller: eMail,
-                decoration: InputDecoration(labelText: 'Enter your roll number'),
+                decoration:
+                    InputDecoration(labelText: 'Enter your roll number'),
               ),
             ),
-            // ENTER EMAIL HERE
+            // FIELD TO ENTER EMAIL
             Container(
               decoration: BoxDecoration(color: Colors.red),
               child: TextField(
                 decoration: InputDecoration(labelText: 'Enter your email'),
               ),
             ),
-            // ENTER PASSWORD HERE
+            // FIELD TO ENTER NEW PASSWORD
             Container(
               decoration: BoxDecoration(color: Colors.orange),
               child: TextField(
@@ -59,12 +61,16 @@ class _RegistrationPageState extends State<RegistrationPage> {
             ),
             // BUTTON TO REGISTER
             Container(
-              decoration: BoxDecoration(color: Colors.red),
-              child: TextButton(
-                onPressed: null,
-                child: Text('Register'),
-              )
-            ),
+                decoration: BoxDecoration(color: Colors.green),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
+                  },
+                  child: Text('Register'),
+                )),
           ],
         ),
       ),

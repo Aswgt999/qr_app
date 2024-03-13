@@ -18,8 +18,14 @@ class _QrPageState extends State<QrPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(),
-            Text('qr code'),
-            TextButton(onPressed: null, child: Text('scan')),
+            Container(
+              decoration: BoxDecoration(color: Colors.teal),
+              child: Text('qr code'),
+            ),
+            Container(
+              decoration: BoxDecoration(color: Colors.amber),
+              child: TextButton(onPressed: null, child: Text('scan')),
+            ),
           ],
         ),
       ),
