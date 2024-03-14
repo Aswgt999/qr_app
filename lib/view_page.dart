@@ -22,45 +22,13 @@ class _ViewPageState extends State<ViewPage> {
             CircleAvatar(radius: 50, child: Image.asset('images/puppy.jpg')),
             Text('Name'),
             Text('flutter developer'),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.phone,
-                    size: 18,
-                    color: Colors.teal,
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      labelText: 'phone number',
-                      border: OutlineInputBorder(),
-                    ),
-                  )
-                ],
-              ),
+            TextField(
+              
+              decoration: InputDecoration(border: OutlineInputBorder()),
             ),
-
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.email,
-                    size: 18,
-                    color: Colors.teal,
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      labelText: 'enter email here',
-                      border: OutlineInputBorder(),
-                    ),
-                  )
-                ],
-              ),
-            )
+            TextField(
+              decoration: InputDecoration(border: OutlineInputBorder()),
+            ),
           ],
         ),
       ),
