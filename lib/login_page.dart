@@ -1,9 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:qr_app1/qr_page.dart';
 import 'package:qr_app1/registration_page.dart';
 
@@ -45,18 +43,22 @@ class _LoginPageState extends State<LoginPage> {
               controller: rollNo,
               decoration: InputDecoration(
                   labelText: 'Roll no',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)),),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
                   filled: true),
             ),
           ),
           // FIELD TO ENTER PASSWORD
           Padding(
-            padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+            padding: const EdgeInsets.fromLTRB(40, 0, 40, 20),
             child: TextField(
               controller: passWord,
               decoration: InputDecoration(
                   labelText: 'password',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)),),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
                   filled: true),
             ),
           ),
