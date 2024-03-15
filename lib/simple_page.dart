@@ -14,11 +14,19 @@ class _SimplePageState extends State<SimplePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextField(
-            decoration: InputDecoration(filled: true, border: OutlineInputBorder(), labelText: 'something',),
+            decoration: InputDecoration(
+              filled: true,
+              border: OutlineInputBorder(),
+              labelText: 'something',
+            ),
           ),
-          TextButton(onPressed: null, child: Text('hello'))
+          TextButton(
+            onPressed: null,
+            child: Text('hello'),
+          ),
         ],
       ),
     );

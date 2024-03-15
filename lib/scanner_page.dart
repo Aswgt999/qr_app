@@ -1,4 +1,4 @@
-// ADD CAMERA PACKAGE
+// ADD CAMERA PACKAGE (redundant)
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/services.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';

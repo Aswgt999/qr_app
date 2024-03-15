@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:qr_app1/login_page.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
@@ -15,6 +17,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   final rollNo = TextEditingController();
   final eMail = TextEditingController();
   final passWord = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

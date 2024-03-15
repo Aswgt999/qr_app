@@ -15,6 +15,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final rollNo = TextEditingController();
   final passWord = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
             child: TextField(
               controller: rollNo,
               decoration: InputDecoration(
-                  labelText: 'Roll no',
+                  hintText: 'Roll no',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
@@ -51,11 +52,11 @@ class _LoginPageState extends State<LoginPage> {
           ),
           // FIELD TO ENTER PASSWORD
           Padding(
-            padding: const EdgeInsets.fromLTRB(40, 0, 40, 20),
+            padding: const EdgeInsets.fromLTRB(40, 0, 40, 50),
             child: TextField(
               controller: passWord,
               decoration: InputDecoration(
-                  labelText: 'password',
+                  hintText: 'password',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
@@ -63,37 +64,30 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           // LOGIN BUTTON
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: TextButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const QrPage()));
-              },
-              child: Text(
-                'Login',
-                style: TextStyle(color: Colors.black),
-              ),
+          TextButton(
+            style: TextButton.styleFrom(backgroundColor: Colors.teal[800],fixedSize: Size(80, 40)),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const QrPage()));
+            },
+            child: Text(
+              'Login',
+              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18,),
             ),
           ),
+          SizedBox(height: 10,),
           // FOR REGISTERING A NEW ACCOUNT
-          Container(
-              decoration: BoxDecoration(
-                color: Colors.orange,
-              ),
-              child: RichText(
-                text: TextSpan(
-                  style: TextStyle(color: Colors.black),
-                  text: 'dont have an account? Register',
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const RegistrationPage())),
-                ),
-              )),
+          RichText(
+            text: TextSpan(
+              style: TextStyle(color: Colors.white, decoration: TextDecoration.underline),
+              text: 'dont have an account? Register',
+              recognizer: TapGestureRecognizer()
+                ..onTap = () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RegistrationPage())),
+            ),
+          ),
         ],
       ),
     );

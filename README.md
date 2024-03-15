@@ -1,6 +1,6 @@
 # qr_app1
 
-A new Flutter project.
+A simple qr scanner app.
 
 ## Getting Started
 

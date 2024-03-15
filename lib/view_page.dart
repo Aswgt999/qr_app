@@ -23,7 +23,6 @@ class _ViewPageState extends State<ViewPage> {
             Text('Name'),
             Text('flutter developer'),
             TextField(
-              
               decoration: InputDecoration(border: OutlineInputBorder()),
             ),
             TextField(
