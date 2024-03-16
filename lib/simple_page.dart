@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:qr_app1/login_page.dart';
 
 class SimplePage extends StatefulWidget {
   const SimplePage({super.key});
@@ -24,7 +25,9 @@ class _SimplePageState extends State<SimplePage> {
             ),
           ),
           TextButton(
-            onPressed: null,
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+            },
             child: Text('hello'),
           ),
         ],
