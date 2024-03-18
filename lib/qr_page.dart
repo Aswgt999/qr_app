@@ -6,11 +6,14 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:flutter/material.dart';
 
 class QrPage extends StatefulWidget {
-  const QrPage({super.key});
+  QrPage({super.key,required this.rollNo});
+
+  String rollNo ;
 
   @override
   State<QrPage> createState() => _QrPageState();
 }
+
 
 class _QrPageState extends State<QrPage> {
   @override
@@ -24,12 +27,13 @@ class _QrPageState extends State<QrPage> {
             // Image
             CircleAvatar(
               radius: 50,
-              child: Image.asset('images/puppy.jpg'),
+              backgroundImage:AssetImage('images/puppy.jpg'),
             ),
             SizedBox(height: 30,),
             // Qr code
             QrImageView(
-              data: '1234567890',
+              backgroundColor: Colors.white,
+              data: widget.rollNo,
               version: QrVersions.auto,
               size: 200.0,
             ),

@@ -1,9 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_app1/qr_page.dart';
 import 'package:qr_app1/registration_page.dart';
+import 'package:qr_app1/view_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,6 +18,35 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final rollNo = TextEditingController();
   final passWord = TextEditingController();
+
+  void login() async {
+    Uri uri = Uri.parse('https://scnner-web.onrender.com/api/login');
+    var response = await http.post(uri,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          "rollno": rollNo.text,
+          "password": passWord.text,
+        }));
+    print(response.statusCode);
+    print(response.body);
+    var data = jsonDecode(response.body);
+    print(data["message"]);
+    if (response.statusCode == 200) {
+
+
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => QrPage(rollNo:data["rollno"])));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(
+          data["message"],
+          style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+        ),
+      ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,21 +96,26 @@ class _LoginPageState extends State<LoginPage> {
             ),
             // LOGIN BUTTON
             TextButton(
-              style: TextButton.styleFrom(backgroundColor: Colors.teal[600],fixedSize: Size(80, 40)),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const QrPage()));
-              },
+              style: TextButton.styleFrom(
+                  backgroundColor: Colors.teal[600], fixedSize: Size(80, 40)),
+              onPressed: login,
               child: Text(
                 'Login',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18,),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             // FOR REGISTERING A NEW ACCOUNT
             RichText(
               text: TextSpan(
-                style: TextStyle(color: Colors.white, decoration: TextDecoration.underline),
+                style: TextStyle(
+                    color: Colors.white, decoration: TextDecoration.underline),
                 text: 'dont have an account? Register',
                 recognizer: TapGestureRecognizer()
                   ..onTap = () => Navigator.push(
