@@ -11,6 +11,10 @@ class SimplePage extends StatefulWidget {
 }
 
 class _SimplePageState extends State<SimplePage> {
+  void getInfo() async {
+    Uri uri = Uri.parse('');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +30,8 @@ class _SimplePageState extends State<SimplePage> {
           ),
           TextButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginPage()));
             },
             child: Text('hello'),
           ),
