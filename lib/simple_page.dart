@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:qr_app1/login_page.dart';
+import 'package:http/http.dart' as http;
 
 class SimplePage extends StatefulWidget {
   const SimplePage({super.key});
@@ -12,7 +13,8 @@ class SimplePage extends StatefulWidget {
 
 class _SimplePageState extends State<SimplePage> {
   void getInfo() async {
-    Uri uri = Uri.parse('');
+    Uri uri = Uri.parse('https://scnner-web.onrender.com/api/profile/:rollno');
+var response = http.get();
   }
 
   @override
