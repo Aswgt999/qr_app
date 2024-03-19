@@ -34,10 +34,10 @@ class _LoginPageState extends State<LoginPage> {
     var data = jsonDecode(response.body);
     print(data["message"]);
     if (response.statusCode == 200) {
-
-
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => QrPage(rollNo:data["rollno"])));
+          context,
+          MaterialPageRoute(
+              builder: (context) => QrPage(rollNo: data["rollno"])));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(

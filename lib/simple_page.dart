@@ -13,8 +13,9 @@ class SimplePage extends StatefulWidget {
 
 class _SimplePageState extends State<SimplePage> {
   void getInfo() async {
-    Uri uri = Uri.parse('https://scnner-web.onrender.com/api/profile/:rollno');
-var response = http.get();
+    Uri uri = Uri.parse('https://scnner-web.onrender.com/api/profile/123');
+    var response = await http.get(uri);
+    print(response.body);
   }
 
   @override
